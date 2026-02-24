@@ -238,17 +238,14 @@ section {
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
-.speaker-icon {
-  width: 88px;
-  height: 88px;
-  background: linear-gradient(135deg, var(--blue-main), var(--blue-light));
+.speaker-photo {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+  object-fit: cover;
   margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
-  color: var(--white);
+  display: block;
+  border: 3px solid var(--blue-light);
 }
 
 .speaker-name {
@@ -429,7 +426,7 @@ footer {
   <div class="container">
     <h2 class="section-title">講師</h2>
     <div class="speaker-card">
-      <div class="speaker-icon">奥</div>
+      <img src="プロフィール画像.jpg" alt="奥田 倫明" class="speaker-photo">
       <p class="speaker-name">奥田 倫明</p>
       <p class="speaker-title">
         中小企業 IT導入診断士<br>
