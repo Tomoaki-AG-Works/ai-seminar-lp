@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI活用実践セミナー 第1回 | 八戸市倫理法人会</title>
+<meta name="description" content="事業へAI導入する為にまずはAIを知ろう 〜基礎知識編〜 2026年3月5日開催">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue-dark: #1a3a5c;
+  --blue-main: #2b6cb0;
+  --blue-light: #63b3ed;
+  --blue-pale: #ebf4ff;
+  --accent: #ed8936;
+  --text: #2d3748;
+  --text-light: #718096;
+  --white: #ffffff;
+  --radius: 12px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  background: var(--white);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─── ヒーロー ─── */
+.hero {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2b6cb0 50%, #63b3ed 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 60px 20px 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+
+.hero-org {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  padding: 4px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #bee3f8;
+}
+
+.hero-theme {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  opacity: 0.9;
+  margin-bottom: 28px;
+}
+
+.hero-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.hero-date svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  text-decoration: none;
+  padding: 16px 48px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(237,137,54,0.4);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(237,137,54,0.5);
+}
+
+.hero-fee {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ─── セクション共通 ─── */
+section {
+  padding: 56px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--blue-light);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* ─── こんな方におすすめ ─── */
+.target {
+  background: var(--blue-pale);
+}
+
+.target-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.target-list li {
+  background: var(--white);
+  padding: 18px 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.target-list li::before {
+  content: "✓";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background: var(--blue-main);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ─── セミナー内容 ─── */
+.about-text {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  text-align: center;
+  line-height: 2;
+}
+
+.about-note {
+  text-align: center;
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: #fffaf0;
+  border: 1px solid #fbd38d;
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: #c05621;
+  display: inline-block;
+}
+
+.about-note-wrap {
+  text-align: center;
+}
+
+/* ─── 講師紹介 ─── */
+.speaker {
+  background: var(--blue-pale);
+}
+
+.speaker-card {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--white);
+  padding: 36px 32px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.speaker-icon {
+  width: 88px;
+  height: 88px;
+  background: linear-gradient(135deg, var(--blue-main), var(--blue-light));
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: var(--white);
+}
+
+.speaker-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  margin-bottom: 6px;
+}
+
+.speaker-title {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.speaker-bio {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ─── 開催概要 ─── */
+.details-table {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.details-table tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.details-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  white-space: nowrap;
+  width: 120px;
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+.details-table td {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+}
+
+/* ─── 申込セクション ─── */
+.apply {
+  background: linear-gradient(135deg, #1a3a5c, #2b6cb0);
+  color: var(--white);
+  text-align: center;
+  padding: 56px 20px;
+}
+
+.apply .section-title {
+  color: var(--white);
+}
+
+.apply .section-title::after {
+  background: rgba(255,255,255,0.4);
+}
+
+.apply-cta {
+  margin-bottom: 28px;
+}
+
+.apply-cta .cta-btn {
+  font-size: 1.2rem;
+  padding: 18px 56px;
+}
+
+.apply-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto 24px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+}
+
+.apply-divider::before,
+.apply-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+
+.apply-fax {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.apply-fax span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* ─── フッター ─── */
+footer {
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  background: #f7fafc;
+}
+
+/* ─── レスポンシブ ─── */
+@media (max-width: 600px) {
+  .hero { padding: 44px 16px 40px; }
+  section { padding: 40px 0; }
+  .details-table th { width: 90px; padding: 12px 10px; font-size: 0.85rem; }
+  .details-table td { padding: 12px 10px; font-size: 0.9rem; }
+  .speaker-card { padding: 28px 20px; }
+  .apply-cta .cta-btn { padding: 16px 36px; font-size: 1.05rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<header class="hero">
+  <div class="container">
+    <p class="hero-org">八戸市倫理法人会 主催</p>
+    <span class="hero-badge">SPECIAL EVENT</span>
+    <h1>AI活用実践セミナー<br>第１回</h1>
+    <p class="hero-subtitle">事業へAI導入する為に<br>まずはAIを知ろう</p>
+    <p class="hero-theme">〜基礎知識編〜</p>
+    <div class="hero-date">
+      <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+      2026年3月5日（木）18:30 - 19:30
+    </div>
+    <br>
+    <a href="https://forms.gle/Gnm5UUoLjCG3CUcp7" target="_blank" rel="noopener" class="cta-btn">参加を申し込む</a>
+    <p class="hero-fee">参加費 1,000円</p>
+  </div>
+</header>
+
+<!-- こんな方におすすめ -->
+<section class="target">
+  <div class="container">
+    <h2 class="section-title">こんな方におすすめ</h2>
+    <ul class="target-list">
+      <li>AIに興味があるが、何から始めればいいかわからない方</li>
+      <li>事業にAIを導入したい経営者・管理職の方</li>
+      <li>従業員の生産性向上に関心がある方</li>
+      <li>AIの基礎知識を短時間で学びたい方</li>
+    </ul>
+  </div>
+</section>
+
+<!-- セミナー内容 -->
+<section class="about">
+  <div class="container">
+    <h2 class="section-title">セミナー内容</h2>
+    <p class="about-text">
+      「物は生きている」という学びがあります。<br>
+      AIを事業に活かす事は、時代に合わせた事業繁栄の一助になると確信しています。<br><br>
+      しっかりとAIを活かして、従業員の活躍の幅を広げる。<br>
+      会員企業の皆様の生産性向上のために企画しました。
+    </p>
+    <div class="about-note-wrap">
+      <p class="about-note">可能であれば、PC持参でご参加ください</p>
+    </div>
+  </div>
+</section>
+
+<!-- 講師紹介 -->
+<section class="speaker">
+  <div class="container">
+    <h2 class="section-title">講師</h2>
+    <div class="speaker-card">
+      <div class="speaker-icon">奥</div>
+      <p class="speaker-name">奥田 倫明</p>
+      <p class="speaker-title">
+        中小企業 IT導入診断士<br>
+        八戸市倫理法人会 会長
+      </p>
+      <p class="speaker-bio">
+        自社ITの導入を契機に、中小企業のDX支援の専門資格を取得。<br>
+        現場目線でのAI活用についてわかりやすくお伝えします。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 開催概要 -->
+<section class="details">
+  <div class="container">
+    <h2 class="section-title">開催概要</h2>
+    <table class="details-table">
+      <tr>
+        <th>日時</th>
+        <td>2026年3月5日（木）18:30 - 19:30</td>
+      </tr>
+      <tr>
+        <th>会場</th>
+        <td>YSアリーナ 会議室</td>
+      </tr>
+      <tr>
+        <th>参加費</th>
+        <td>1,000円</td>
+      </tr>
+      <tr>
+        <th>主催</th>
+        <td>八戸市倫理法人会</td>
+      </tr>
+      <tr>
+        <th>講師</th>
+        <td>奥田 倫明（中小企業IT導入診断士）</td>
+      </tr>
+      <tr>
+        <th>ファシリテーター</th>
+        <td>佐々木 哲也（八戸市倫理法人会 専任幹事）</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- 申込セクション -->
+<section class="apply">
+  <div class="container">
+    <h2 class="section-title">お申し込み</h2>
+    <div class="apply-cta">
+      <a href="https://forms.gle/Gnm5UUoLjCG3CUcp7" target="_blank" rel="noopener" class="cta-btn">Webから申し込む</a>
+    </div>
+    <div class="apply-divider">または</div>
+    <div class="apply-fax">
+      FAXでのお申し込み
+      <span>0178-24-5458</span>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <p>&copy; 2026 八戸市倫理法人会</p>
+</footer>
+
+</body>
+</html>
