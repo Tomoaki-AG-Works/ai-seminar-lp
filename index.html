@@ -129,6 +129,24 @@ body {
   box-shadow: 0 6px 20px rgba(237,137,54,0.5);
 }
 
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn-outline {
+  background: transparent;
+  border: 2px solid var(--white);
+  box-shadow: none;
+}
+
+.cta-btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  box-shadow: none;
+}
+
 .hero-fee {
   margin-top: 14px;
   font-size: 0.9rem;
@@ -453,7 +471,10 @@ footer {
       2026年3月5日（木）18:30 - 19:30
     </div>
     <br>
-    <a href="#thanks" class="cta-btn">録画を見る ▶</a>
+    <div class="hero-buttons">
+      <a href="#thanks" class="cta-btn">録画を見る ▶</a>
+      <a href="https://drive.google.com/drive/folders/16dYjYlTXgBiYPeP5zqymW9ooQxQQtAgB" target="_blank" rel="noopener" class="cta-btn cta-btn-outline">持ち帰り資料 ▶</a>
+    </div>
   </div>
 </header>
 
