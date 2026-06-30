@@ -445,29 +445,56 @@ footer {
   background: #f7fafc;
 }
 
-/* ─── 第2回バナー ─── */
+/* ─── シリーズナビ ─── */
 .next-banner {
-  background: linear-gradient(90deg, #ec8b2c 0%, #f6a54b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #183a5c;
   color: var(--white);
   text-align: center;
-  padding: 14px 20px;
+  padding: 12px 20px;
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
-.next-banner a {
+.next-banner-label {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+.next-banner a,
+.next-banner .current {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
   color: var(--white);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.16);
 }
 
 .next-banner a:hover {
-  text-decoration: none;
+  background: rgba(255,255,255,0.2);
+}
+
+.next-banner .current {
+  color: var(--blue-dark);
+  background: var(--white);
 }
 
 /* ─── レスポンシブ ─── */
 @media (max-width: 600px) {
+  .next-banner { align-items: stretch; }
+  .next-banner-label { width: 100%; }
+  .next-banner a,
+  .next-banner .current { justify-content: center; flex: 1 1 100%; }
   .hero { padding: 44px 16px 40px; }
   section { padding: 40px 0; }
   .details-table th { width: 90px; padding: 12px 10px; font-size: 0.85rem; }
@@ -479,10 +506,13 @@ footer {
 </head>
 <body>
 
-<!-- 第2回バナー -->
-<div class="next-banner">
-  第2回 開催決定！ 4/23(木) 18:30〜 ｜ <a href="https://tomoaki-ag-works.github.io/ai-seminar-lp-2/">詳細・お申し込みはこちら →</a>
-</div>
+<!-- シリーズナビ -->
+<nav class="next-banner" aria-label="AI活用実践セミナー各回リンク">
+  <span class="next-banner-label">AI活用実践セミナー</span>
+  <span class="current">第1回 基礎知識編</span>
+  <a href="https://tomoaki-ag-works.github.io/ai-seminar-lp-2/">第2回 業務活用編</a>
+  <a href="https://tomoaki-ag-works.github.io/ai-seminar-lp-3/">第3回 Claude特集</a>
+</nav>
 
 <!-- ヒーロー -->
 <header class="hero">
